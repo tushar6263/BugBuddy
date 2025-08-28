@@ -36,56 +36,63 @@ It provides a seamless shopping experience with user authentication, product man
 - connect-flash (Flash messaging)  
 
 ---
-# 📂 BagBuddy - Project Structure
+# 👜 BagBuddy
 
-📦 BagBuddy
-┣ 📂 config
-┃ ┣ 📜 development.json
-┃ ┣ 📜 keys.js
-┃ ┣ 📜 mongoose-connection.js
-┃ ┗ 📜 multer-config.js
-┣ 📂 controllers
-┃ ┗ 📜 authController.js
-┣ 📂 middleware
-┃ ┗ 📜 isloggedIn.js
-┣ 📂 models
-┃ ┣ 📜 owner-model.js
-┃ ┣ 📜 product-model.js
-┃ ┗ 📜 user-model.js
-┣ 📂 node_modules
-┣ 📂 public
-┣ 📂 routes
-┃ ┣ 📜 index.js
-┃ ┣ 📜 ownersRouter.js
-┃ ┣ 📜 productsRouter.js
-┃ ┗ 📜 usersRouter.js
-┣ 📂 utils
-┃ ┗ 📜 generateToken.js
-┣ 📂 views
-┃ ┣ 📂 partials
-┃ ┣ 📜 admin.ejs
-┃ ┣ 📜 cart.ejs
-┃ ┣ 📜 createproducts.ejs
-┃ ┣ 📜 owner-login.ejs
-┃ ┗ 📜 shop.ejs
-┣ 📜 .env
-┣ 📜 .gitignore
-┣ 📜 app.js
-┣ 📜 package-lock.json
-┗ 📜 package.json
-
-yaml
-Copy code
-
+BagBuddy is a **Full Stack E-Commerce Project** built with **Node.js, Express.js, MongoDB, and EJS**.  
+It provides features for product management, user authentication, cart, and admin controls.
 
 ---
 
-## ⚙️ Installation & Setup
+## 📁 Project Structure
 
-Clone the repository:
 ```bash
+├── config/
+│   ├── development.json
+│   ├── keys.js
+│   ├── mongoose-connection.js
+│   └── multer-config.js
+├── controllers/
+│   └── authController.js
+├── middleware/
+│   └── isLoggedIn.js
+├── models/
+│   ├── owner-model.js
+│   ├── product-model.js
+│   └── user-model.js
+├── public/
+│   ├── Images
+│   ├── Stylesheets
+│   └── javascripts
+├── routes/
+│   ├── index.js
+│   ├── ownersRouter.js
+│   ├── productsRouter.js
+│   └── usersRouter.js
+├── utils/
+│   └── generateToken.js
+├── views/
+│   ├── partials/
+│   ├── admin.ejs
+│   ├── cart.ejs
+│   ├── createproducts.ejs
+│   ├── owner-login.ejs
+│   └── shop.ejs
+├── .env
+├── .gitignore
+├── app.js
+├── package.json
+└── README.md
+
+
+# clone the repository
 git clone https://github.com/your-username/BagBuddy.git
+
+# move into folder
 cd BagBuddy
 
+# install dependencies
+npm install
 
+# run development server
+npm start
 
