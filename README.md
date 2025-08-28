@@ -16,7 +16,19 @@ It provides a seamless shopping experience with user authentication, product man
 - 💾 MongoDB Database integration  
 
 ---
+## 🖼️ Screenshots
 
+### 🏠 Homepage
+![Homepage](./public/images/homepage%20SS.png)
+
+
+### 👥 Shoping Page
+![Members](./public/images//shop%20SS.png)
+
+### 👥 Owner admin page
+![Members](./public/images/admin%20SS.png)
+
+---
 ## 🛠️ Tech Stack
 
 **Frontend:**  
@@ -34,12 +46,6 @@ It provides a seamless shopping experience with user authentication, product man
 - Multer (Image uploads)  
 - JWT & bcrypt (Authentication)  
 - connect-flash (Flash messaging)  
-
----
-# 👜 BagBuddy
-
-BagBuddy is a **Full Stack E-Commerce Project** built with **Node.js, Express.js, MongoDB, and EJS**.  
-It provides features for product management, user authentication, cart, and admin controls.
 
 ---
 
@@ -82,17 +88,4 @@ It provides features for product management, user authentication, cart, and admi
 ├── app.js
 ├── package.json
 └── README.md
-
-
-# clone the repository
-git clone https://github.com/your-username/BagBuddy.git
-
-# move into folder
-cd BagBuddy
-
-# install dependencies
-npm install
-
-# run development server
-npm start
 

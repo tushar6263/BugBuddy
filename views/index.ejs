@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BugBuddy</title>
+  <title>BugBuddy:-Bug Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="font-['helvetica_now_display']">
   <nav class="w-full flex justify-between items-center px-5 py-3">
-    <a href="/" class="text-xl font-bold">Bug<span class="text-blue-500">Buddy</span></a>
+    <a href="/" class="flex items-center gap-1 text-xl font-bold">
+      Bug<span class="text-blue-500">Buddy</span>
+      <img src="/images/bags.png" alt="logo" width="25" height="25">
+    </a>
+
     <ul class="flex gap-5 items-center">
       <a href="/shop">Shop</a>
       <a href="">Card</a>
@@ -34,27 +38,35 @@
 
         <!-- Register Section -->
         <div class="w-full lg:w-1/2 flex items-center justify-center">
-          <div class="w-full max-w-md px-4 sm:px-6 lg:px-10">
-            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-semibold flex items-center gap-2 mb-3">
-              Welcome to
-              <span class="text-blue-400 flex items-center gap-1">
-                <i class="fa fa-key"></i> BugBuddy <i class="fa fa-key"></i>
-              </span>
-            </h3>
+  <div class="w-full max-w-md px-4 sm:px-6 lg:px-10">
+    
+    <!-- Heading -->
+    <h3 class="text-2xl sm:text-3xl lg:text-3xl font-semibold mb-3 flex items-center gap-2">
+      Welcome to 
+      <span class="flex items-center gap-1 text-3xl font-bold">
+        Bug<span class="text-blue-500">Buddy</span>
+        <img src="/images/bags.png" alt="logo" width="28" height="28" class="inline-block">
+      </span>
+    </h3>
 
-            <h4 class="text-lg sm:text-xl lg:text-2xl mb-5">Create your account</h4>
-            <form autocomplete="off" action="/users/register" method="post" class="space-y-3">
-              <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" type="text"
-                placeholder="Full Name" name="fullname">
-              <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" type="email"
-                placeholder="Email" name="email">
-              <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" type="password"
-                placeholder="Password" name="password">
-              <input class="w-full lg:w-auto px-5 rounded-full py-3 mt-2 bg-blue-500 text-white cursor-pointer"
-                type="submit" value="Create My Account">
-            </form>
-          </div>
-        </div>
+    <!-- Subheading -->
+    <h4 class="text-lg sm:text-xl lg:text-2xl mb-5">Create your account</h4>
+
+    <!-- Form -->
+    <form autocomplete="off" action="/users/register" method="post" class="space-y-3">
+      <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" 
+             type="text" placeholder="Full Name" name="fullname">
+      <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" 
+             type="email" placeholder="Email" name="email">
+      <input class="bg-zinc-100 block w-full px-3 py-2 border rounded-md border-zinc-200" 
+             type="password" placeholder="Password" name="password">
+      <input class="w-full lg:w-auto px-5 py-3 mt-2 rounded-full bg-blue-500 text-white cursor-pointer" 
+             type="submit" value="Create My Account">
+    </form>
+
+  </div>
+</div>
+
 
         <!-- Login Section -->
         <div class="w-full lg:w-1/2 flex items-center justify-center">

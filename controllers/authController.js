@@ -43,7 +43,7 @@ module.exports.loginUser = async function (req,res) {
     
     let user = await userModel.findOne({email :email});
     if(!user) {
-          res.flash("error" ,"Email or Password incorrect");
+          req.flash("error" ,"Email or Password incorrect");
             return res.redirect("/");
     }
     bcrypt.compare(password , user.password ,function(err,result){
@@ -53,7 +53,7 @@ module.exports.loginUser = async function (req,res) {
             res.redirect("/shop");
         }
         else{
-            res.flash("error" ,"Email or Password incorrect");
+            req.flash("error" ,"Email or Password incorrect");
             return res.redirect("/");
 
         }
