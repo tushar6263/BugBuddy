@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
     image: {
-        type: String
+        type: Buffer
     },
     name: {
         type: String
@@ -14,13 +14,13 @@ const productSchema = mongoose.Schema({
     price: {
         type: Number
     },
-    bgcolor: {
+    bgColor: {
         type: String
     },
-    panelcolor: {
+    panelColor: {
         type: String
     },
-    textcolor: {
+    textColor: {
         type: String
     }
 })

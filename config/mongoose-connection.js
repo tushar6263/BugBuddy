@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
+const dbgr = require("debug")("development:mongoose");
+const config = require("config");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/BagBuddy") // fixed missing ":" in URI
+  .connect(`${config.get("MONGODB_URI")}/bagbuddy`)
   .then(() => {
-    console.log("Connected");
+    dbgr("Connected to MongoDB");
   })
   .catch((err) => {
-    console.log(err);
+    dbgr("MongoDB Connection Error:", err);
   });
 
-module.exports = mongoose.connection;
+module.exports = mongoose; 
