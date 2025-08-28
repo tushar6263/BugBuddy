@@ -37,5 +37,14 @@ It provides a seamless shopping experience with user authentication, product man
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## ⚙️ Installation & Setup
+
+Clone the repository:
+```bash
+git clone https://github.com/your-username/BagBuddy.git
+cd BagBuddy
+
 
