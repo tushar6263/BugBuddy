@@ -23,7 +23,10 @@ It provides a seamless shopping experience with user authentication, product man
 
 
 ### 👥 Shoping Page
-![Members](./public/images//shop%20SS.png)
+![Members](./public/images/our%20porduct%20.png)
+
+### 👥 Card Page
+![Members](./public/images/cart.png)
 
 ### 👥 Owner admin page
 ![Members](./public/images/admin%20SS.png)

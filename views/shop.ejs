@@ -1,50 +1,103 @@
-<%- include('./partials/header') %>
-    <div class="w-full h-screen flex items-start px-20 py-20">
-        <div class="w-[25%] flex h-screen flex-col items-start">
-            <div class="flex items-center gap-2">
-                <h3>sort by</h3>
-                <form action="/shop">
-                    <select class="border-[1px] px-2 py-1" name="sortby" id="">
-                        <option value="popular">Popular</option>
-                        <option value="newest">Newest</option>
-                    </select>
-                </form>
-            </div>
-            <div class="flex flex-col mt-20">
-                <a class="block w-fit mb-2" href="">New Collection</a>
-                <a class="block w-fit mb-2" href="">All Products</a>
-                <a class="block w-fit mb-2" href="">Discounted Products</a>
-            </div>
-            <div class="mt-32">
-                <a class="block w-fit mb-2" href="">Filter by :</a>
-                <a class="block w-fit mb-2" href="">Availability</a>
-                <a class="block w-fit mb-2" href="">Discount</a>
-            </div>
-        </div>
-        <div class="w-[75%] flex flex-col gap-5 h-screen">
-            <div class="flex items-start gap-5">
-                <% products.forEach(function(product){ %>
-                    <div class="w-60">
-                        <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgColor %>]">
-                            <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
-                                alt="">
-                        </div>
-                        <div
-                            class="flex justify-between bg-[<%= product.panelColor %>] items-center px-4 py-4 text-[<%= product.textColor %>]">
-                            <div>
-                                <h3>
-                                    <%= product.name %>
-                                </h3>
-                                <h4>₹ <%= product.price %>
-                                </h4>
-                            </div>
-                            <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="">
-                                <i class="ri-add-line"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <% }) %>
-            </div>
-        </div>
+<%- include('partials/header') %>
+
+  <% if(success && success.length > 0){ %>
+  <div id="flash-msg"
+       class="fixed top-5 left-1/2 -translate-x-1/2 px-4 py-2 rounded-md bg-blue-500 max-w-xs sm:max-w-sm md:max-w-md text-center text-white font-semibold shadow-lg transition-all">
+    <%= success %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const msg = document.getElementById('flash-msg');
+      if(msg) msg.remove();
+    }, 3000); 
+  </script>
+  <% } %>
+  <!-- Main Section -->
+  <div class="w-full min-h-screen flex flex-col md:flex-row mt-10 p-3">
+
+    <!-- Sidebar -->
+<!-- Sidebar -->
+<aside class=" mr-6 w-full md:w-[22%] md:min-h-screen md:sticky md:top-20 bg-white rounded-xl shadow-sm p-5 mb-6 md:mb-0">
+  <!-- Mobile Toggle -->
+  <div class="flex justify-between items-center md:hidden mb-4">
+    <h3 class="text-lg font-semibold">Filters</h3>
+    <button 
+      onclick="document.getElementById('filterMenu').classList.toggle('max-h-0'); document.getElementById('filterMenu').classList.toggle('max-h-screen');" 
+      class="p-2 border rounded-lg hover:bg-gray-100">
+      <i class="ri-filter-3-line text-lg"></i>
+    </button>
+  </div>
+
+  <!-- Sidebar Content -->
+  <div id="filterMenu" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0 md:max-h-none md:block space-y-8">
+    <!-- Sort by -->
+    <div>
+      <h3 class="font-semibold text-gray-700 mb-2">Sort by</h3>
+      <form action="/shop">
+        <select class="w-full border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition">
+          <option value="popular">Popular</option>
+          <option value="newest">Newest</option>
+        </select>
+      </form>
     </div>
-    <%- include('./partials/footer') %>
+
+    <!-- Categories -->
+    <div>
+      <h3 class="font-semibold text-gray-700 mb-2">Categories</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li><a class="block hover:text-blue-600 transition" href="">New Collection</a></li>
+        <li><a class="block hover:text-blue-600 transition" href="">All Products</a></li>
+        <li><a class="block hover:text-blue-600 transition" href="">Discounted Products</a></li>
+      </ul>
+    </div>
+
+    <!-- Filters -->
+    <div>
+      <h3 class="font-semibold text-gray-700 mb-2">Filter By</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li><a class="block hover:text-blue-600 transition" href="">Availability</a></li>
+        <li><a class="block hover:text-blue-600 transition" href="">Discount</a></li>
+      </ul>
+    </div>
+  </div>
+</aside>
+
+
+    <!-- Products Grid -->
+    <main class="w-full md:w-[78%]">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Our Products</h2>
+        <input type="text" placeholder="Search..." 
+          class="hidden sm:block px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition" />
+      </div>
+
+      <!-- Grid -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <% products.forEach(function(product){ %>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-2 hover:scale-[1.02]">
+          <!-- Image -->
+          <div class="w-full h-56 flex items-center justify-center bg-[<%= product.bgColor %>]">
+            <img class="h-40 object-contain transition-transform duration-300 hover:scale-110" 
+                 src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
+          </div>
+
+          <!-- Details -->
+          <div class="flex justify-between items-center px-4 py-3 bg-[<%= product.panelColor %>] text-[<%= product.textColor %>]">
+            <div>
+              <h3 class="font-semibold text-lg"><%= product.name %></h3>
+              <h4 class="text-sm font-medium">₹ <%= product.price %></h4>
+            </div>
+            <a href="/addtocart/<%= product.id %>" 
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow hover:bg-gray-100 transition transform hover:rotate-12">
+              <i class="ri-add-line text-lg"></i>
+            </a>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
